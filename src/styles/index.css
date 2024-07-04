@@ -42,6 +42,7 @@
     color: rgba(159, 148, 150, 0.864);
     font-size: 40px;
     margin: 20px;
+    border-top: 2px solid rgba(0,0,0,0.15);
   }
 
   input:focus {
@@ -60,4 +61,12 @@
     font-size: 20px;
     padding-left: 15px;
     padding-top: 5px;
+}
+
+.button {
+  background: rgb(253, 253, 243);
+  color: rgba(179, 114, 125, 0.864);
+  font-size: 40px;
+  border: none;
+  float: right;
 }
