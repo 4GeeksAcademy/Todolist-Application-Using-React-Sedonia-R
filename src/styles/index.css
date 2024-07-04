@@ -69,4 +69,9 @@
   font-size: 40px;
   border: none;
   float: right;
+  opacity: 0;
+}
+
+.task:hover .button {
+  opacity: 1;
 }
