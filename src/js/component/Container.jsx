@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { TopInput } from './TopInput';
+import { Tasks } from './Tasks';
+import { Footer } from './Footer';
 
 export const Container = () => {
     const [ inputValue, setInputValue ] = useState('');
@@ -14,39 +17,9 @@ export const Container = () => {
     return (
         <div className="row gx-0">
             <div className='paper-stack'>
-                <div>
-                    <input 
-                        className='input-field border-0 mb-0 shadows-into-light-regular'
-                        type="text"
-                        placeholder="What needs to be done?"
-                        value={inputValue}
-                        onChange={
-                            (event) => setInputValue(event.target.value)
-                        }
-                        onKeyDown={(event) => handleInputEnter(event)}
-                    />
-                </div>
-                {allTasks.map((input, index) => {
-                    const removeItems = (index) => {
-                        let data = [...allTasks];
-                        data.splice(index, 1);
-                        setAllTasks(data);
-                    };
-                    return(
-                        <div key={index}>
-                            <ul className="input-field task shadows-into-light-regular p-0">
-                                {allTasks[index]}
-                                <button 
-                                    className='button shadows-into-light-regular'
-                                    onClick={() => removeItems(index)}
-                                >
-                                    X
-                                </button>
-                            </ul>
-                        </div>
-                    )
-                })}
-                <div className='footer shadows-into-light-regular'>{allTasks.length} items left</div>
+                <TopInput inputValue={inputValue} setInputValue={setInputValue} handleInputEnter={handleInputEnter}/>
+                <Tasks allTasks={allTasks} setAllTasks={setAllTasks}/>
+                <Footer allTasks={allTasks}/>
             </div>
         </div>
     );
