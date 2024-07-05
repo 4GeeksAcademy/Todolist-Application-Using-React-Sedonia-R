@@ -5,7 +5,6 @@ export const Container = () => {
     const [ allTasks, setAllTasks ] = useState([]);
 
     const handleInputEnter = (event) => {
-        // let newField = { text: event.target.value };
         if(event.key == 'Enter'){
             setAllTasks([...allTasks, event.target.value]);
             setInputValue('');
@@ -17,7 +16,7 @@ export const Container = () => {
             <div className='paper-stack'>
                 <div>
                     <input 
-                        className='input-field  border-0 mb-0 shadows-into-light-regular'
+                        className='input-field border-0 mb-0 shadows-into-light-regular'
                         type="text"
                         placeholder="What needs to be done?"
                         value={inputValue}
@@ -27,7 +26,6 @@ export const Container = () => {
                         onKeyDown={(event) => handleInputEnter(event)}
                     />
                 </div>
-                
                 {allTasks.map((input, index) => {
                     const removeItems = (index) => {
                         let data = [...allTasks];
@@ -45,7 +43,6 @@ export const Container = () => {
                                     X
                                 </button>
                             </ul>
-                            
                         </div>
                     )
                 })}
